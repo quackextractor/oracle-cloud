@@ -1,0 +1,15 @@
+# Copy to terraform.tfvars and fill in. terraform.tfvars is gitignored.
+# API key: OCI Console > Profile > My profile > API keys > Add API key.
+# Download the private key next to this file as oci_api_key.pem.
+
+tenancy_ocid     = "ocid1.tenancy.oc1..xxxx"
+user_ocid        = "ocid1.user.oc1..xxxx"
+fingerprint      = "aa:bb:cc:dd:ee:ff:00:11:22:33:44:55:66:77:88:99"
+private_key_path = "oci_api_key.pem"
+region           = "eu-zurich-1"
+
+# Root compartment == tenancy OCID for Always Free.
+compartment_ocid = "ocid1.tenancy.oc1..xxxx"
+
+ssh_public_key   = "ssh-rsa AAAA... comment"
+ssh_allowed_cidr = "1.2.3.4/32"
