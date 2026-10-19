@@ -1,0 +1,13 @@
+# secrets: real values live here, never committed
+terraform-files/terraform.tfvars
+terraform-files/*.tfvars
+!terraform-files/terraform.tfvars.example
+terraform-files/*.pem
+
+# terraform working files
+**/.terraform/
+**/.terraform.lock.hcl
+**/*.tfstate
+**/*.tfstate.*
+**/crash.log
+/api-key
