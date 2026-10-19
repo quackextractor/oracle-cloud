@@ -1,0 +1,13 @@
+services:
+  jackpot:
+    image: hashicorp/terraform:1.16
+    entrypoint: ["/bin/sh", "/work/jackpot.sh"]
+    working_dir: /work
+    volumes:
+      - .:/work
+    # run as the host user so state/lock files stay owned by you, not root
+    user: "${UID:-1000}:${GID:-1000}"
+    environment:
+      HOME: /tmp
+    # on-failure, not always: a successful exit 0 means the instance exists and we must stop calling Oracle
+    restart: on-failure

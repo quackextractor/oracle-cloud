@@ -8,4 +8,4 @@ REMOTE=oracle-cloud
 cd "$(dirname "$0")"
 tar --exclude=.terraform --exclude='*.tfstate*' --exclude=tfplan -czf - . | ssh "$HOST" "mkdir -p $REMOTE && tar -xzf - -C $REMOTE"
 ssh "$HOST" "test -e $REMOTE/terraform.tfstate" || scp -q terraform.tfstate "$HOST:$REMOTE/"
-ssh -t "$HOST" "bash $REMOTE/setup.sh"
+ssh "$HOST" "sh $REMOTE/setup.sh"
