@@ -11,7 +11,7 @@ terraform init -input=false -no-color >/dev/null || exit 1
 while :; do
   n=$((n + 1))
   if out=$(terraform apply -auto-approve -input=false -no-color 2>&1); then
-    echo "JACKPOT after $n attempts. private_ip=$(terraform output -raw private_ip)"
+    echo "JACKPOT after $n attempts. public_ip=$(terraform output -raw public_ip) private_ip=$(terraform output -raw private_ip)"
     exit 0
   fi
   if printf '%s' "$out" | grep -q "Out of host capacity"; then

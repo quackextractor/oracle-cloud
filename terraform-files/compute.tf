@@ -20,7 +20,7 @@ resource "oci_core_instance" "industrialist" {
   create_vnic_details {
     subnet_id                 = oci_core_subnet.public.id
     display_name              = "industrialist-primary-vnic"
-    assign_public_ip          = false
+    assign_public_ip          = true
     assign_ipv6ip             = false
     assign_private_dns_record = true
   }
@@ -82,3 +82,4 @@ resource "oci_core_instance" "industrialist" {
 }
 
 output "private_ip" { value = oci_core_instance.industrialist.private_ip }
+output "public_ip" { value = oci_core_instance.industrialist.public_ip }
